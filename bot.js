@@ -1,9 +1,7 @@
 // dotenv, facilita el uso de variables de entorno, para gestionar la key del bot en este caso
-const dotenv = require('dotenv')
-dotenv.config()
-
+const { ID_BOT } = require('./config')
 const Telegraf = require('telegraf')
-const bot = new Telegraf(process.env.ID_BOT)
+const bot = new Telegraf(ID_BOT)
 
 let BaseDeDatos = []	//Intentar usar las Sessions de telegraf
 
@@ -25,7 +23,7 @@ bot.command('add', (ctx) => {
 	ctx.reply('Comando de añadir a la lista de cumples')
 	const textChat = ctx.message.text.split(' ')
 
-	if ( textChat.length != 3 )
+	if (textChat.length != 3)
 		ctx.reply("Necesito que me digas /add Nombre Dia")
 	else if (BaseDeDatos[textChat[1]])
 		ctx.reply(`Lo siento, ya tenemos registrado a ${textChat[1]} ;.;`)
@@ -41,8 +39,8 @@ bot.command('add', (ctx) => {
 bot.command('ver', (ctx) => {
 	let a = 'Aca tenemos a:\n'
 
-	for ( i in BaseDeDatos) {
-		a = a +`* ${i}: el día ${BaseDeDatos[i]}\n`
+	for (i in BaseDeDatos) {
+		a = a + `* ${i}: el día ${BaseDeDatos[i]}\n`
 	}
 
 	ctx.reply(a)
