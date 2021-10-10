@@ -4,6 +4,7 @@
   "description": "",
   "main": "bot.js",
   "dependencies": {
+    "cross-env": "^7.0.3",
     "dotenv": "^8.2.0",
     "node-telegram-bot-api": "^0.54.0",
     "request": "^2.88.2",
@@ -13,8 +14,8 @@
     "nodemon": "^2.0.6"
   },
   "scripts": {
-    "start": "node bot.js",
-    "dev": "nodemon bot.js"
+    "start": "node nodeBot.js",
+    "dev": "nodemon nodeBot.js"
   },
   "author": "",
   "license": "ISC"

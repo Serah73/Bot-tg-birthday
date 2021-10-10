@@ -1,33 +1,11 @@
 const Telegrambot = require('node-telegram-bot-api');
+process.env.NTBA_FIX_319 = 1;   // Fix
+const { ID_BOT } = require('./config')
+const TelegramBot = require('node-telegram-bot-api');
+const bot = new TelegramBot(ID_BOT, {polling: true});
 
-const { ID_BOT, HOLA} = require('./config')
+bot.on('message', (msg) => {
+    const chatId = msg.chat.id;
 
-
-
-
-
-
-
-console.log("esta es la variable: ", HOLA)
-/*
-const bot = Telegrambot(ID_BOT, {polling: true})
-
-bot.onText(/^\hola/, (msg) => {
-    bot.sendMessage(msg.chat.id, "Hola " + msg.from.first_name);
-})
-
-bot.onText(/^\/borratodo/, (msg) => {
-    let chatId = msg.chat.id;
-    let messageId = msg.message_id;
-    let replyMessage = msg.reply_to_message.message_id;
-
-    // noinspection PointlessBooleanExpressionJS
-    if (msg.reply_to_message === undefined){
-        return;
-    }
-
-    bot.deleteMessage(chatId, messageId);
-    bot.deleteMessage(chatId, replyMessage);
+    bot.sendMessage(chatId, 'Received your message');
 });
-
- */
