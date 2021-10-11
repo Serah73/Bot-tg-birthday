@@ -1,4 +1,3 @@
-// dotenv, facilita el uso de variables de entorno, para gestionar la key del bot en este caso
 const { ID_BOT } = require('./config')
 const Telegraf = require('telegraf')
 const bot = new Telegraf(ID_BOT)
