@@ -14,9 +14,9 @@
     "nodemon": "^2.0.6"
   },
   "scripts": {
-    "start": "node nodeBot.js",
-    "dev": "nodemon nodeBot.js"
+    "start": "node bot.js",
+    "dev": "nodemon bot.js"
   },
-  "author": "",
+  "author": "José Ramón Rodríguez Hernández",
   "license": "ISC"
 }

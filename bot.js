@@ -4,20 +4,27 @@ const bot = new Telegraf(ID_BOT)
 
 let BaseDeDatos = []	//Intentar usar las Sessions de telegraf
 
-
+//Comando por defecto /start
 bot.start((ctx) => {
 	ctx.reply('Holii^^');
 })
 
+//Comando por defecto help
 bot.help((ctx) => {
 	ctx.reply('Help, its not fun :O');
 })
 
 bot.settings((ctx) => {
-	ctx.reply('setting');
+	ctx.reply('it\'s setting');
 })
 
-// Se espera que llegue (Persona, Día). Luego ya veremos fecha en ves de día.
+// Escucha de texto plano
+bot.hears('hi', (ctx) => ctx.reply('Hey there'))
+
+//Eventos
+bot.on('sticker', (ctx) => ctx.reply('👍'))
+
+// Crear tu propio comando
 bot.command('add', (ctx) => {
 	ctx.reply('Comando de añadir a la lista de cumples')
 	const textChat = ctx.message.text.split(' ')
