@@ -15,7 +15,7 @@
   },
   "scripts": {
     "start": "node nodeBot.js",
-    "dev": "nodemon nodeBot.js"
+    "dev": "npx tsc && nodemon nodeBot.js"
   },
   "author": "",
   "license": "ISC"
