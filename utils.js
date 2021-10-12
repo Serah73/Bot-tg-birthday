@@ -10,19 +10,26 @@ const createFile = (file, data) => {
         if (err) console.log("Error: Creating a file", err);
     });
 }
-const checkDirFile = (name, type, data) => {
-    return new Promise((resolve) => {
-        fs.access(name, (err) => {
-            if (err) {
-                (type === 'dir')? createDir(name) : createFile(name, data);
-                resolve();
-            }
-            else resolve();
-        })
+
+async function checkExist(name){
+    fs.access(name, (err) => {
+        return !!err;
     })
+}
+const createFileDir = async (name, data) => {
+    let fileExist = await checkExist()
+    if (fileExist) return false
+    if (name.indexOf('.') === -1) {
+        createDir(name);
+        return true;
+    }else {
+        createFile(name, data);
+        return true;
+    }
 }
 
 
 module.exports = {
-    checkDirFile
+    checkExist,
+    createFileDir
 }
