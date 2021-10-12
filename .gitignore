@@ -1,5 +1,9 @@
 # IDE
 .idea/
+
+# Build
+build/
+
 # Script
 scripts/
 
