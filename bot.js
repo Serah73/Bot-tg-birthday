@@ -1,3 +1,5 @@
+// Esta version ha quedado obsoleta por el cambio de librerias
+
 const { ID_BOT } = require('./config')
 const Telegraf = require('telegraf')
 const bot = new Telegraf(ID_BOT)
